@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=tem">
+    <title>Temperature Converter</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="https://kit.fontawesome.com/ea2822e8cc.css" crossorigin="anonymous"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="top-section">
+        <i class="fa-solid fa-temperature-high"></i>
+        <h1>Temperaure Converter</h1>
+    </div>
+    <div class="main-box">
+        <div class="header">
+            <h1 id="header"> Fahrenheit To Celcius </h1>
+        </div>
+
+        <div class="input">
+
+            <div class="column1 column">
+                <h6 class="input_all">Degree</h6>
+                <input class="input_all" id="actual_input" type="text" name="number_text" id="number_text">
+            </div>
+
+            <div class="column2 column">
+                <h6 class="input_all">Type</h6>
+                <select class="input_all" onchange="change_header()" name="Temperaure_unit" id="Temperature_unit">
+                    <option value="Fahrenheit">Fahrenheit</option>
+                    <option value="celsius">celsius</option>
+                </select>
+            </div>
+
+
+
+        </div>
+        <div class="btn" >
+            <button onclick="myResult()">Convert</button>
+        </div>
+        
+    </div>
+    <div >
+        <h2 class="answer" id="answer">  </h2>
+    </div>
+
+    <script>
+        const myResult=()=>{
+           let value2= document.getElementById("actual_input").value;
+
+           if (value2===''){
+                 document.getElementById("answer").innerHTML=`Empty Value`;
+           }
+
+           else if (document.getElementById("Temperature_unit").value==='celsius') {
+                // document.getElementById("header").innerHTML="Celcius To Fahrenheit"
+                result= (value2*1.8)+32;
+                document.getElementById("answer").innerHTML=`${value2}°C is ${result}°F`
+           }
+
+           else{
+            // document.getElementById("header").innerHTML="Fahrenheit To Celcius"
+            result= ((value2-32)*0.5556);
+                document.getElementById("answer").innerHTML=`${value2}°F is ${result}°C`
+           }
+       }
+
+       const change_header=()=>{
+        if (document.getElementById("Temperature_unit").value==='celsius') {
+                document.getElementById("header").innerHTML="Celcius To Fahrenheit"
+        }
+        else{
+            document.getElementById("header").innerHTML="Fahrenheit To Celcius"
+           
+           }
+       }
+    </script>
+    
+
+</body>
+
+</html>
